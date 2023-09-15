@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "serve": "nx serve",
     "serve:dashboard": "nx serve dashboard --devRemotes=login",
     "serve:app": "nx serve dashboard --devRemotes=login",
     "serve:login": "nx serve login",
