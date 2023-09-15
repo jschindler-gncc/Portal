@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'login-login-form',
-  preset: '../../../jest.preset.js',
+  displayName: 'auth-form',
+  preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../../coverage/libs/login/login-form',
+  coverageDirectory: '../../coverage/libs/auth-form',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

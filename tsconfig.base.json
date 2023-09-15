@@ -15,9 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ngcc-new-template/login/login-form": [
-        "libs/login/login-form/src/index.ts"
-      ],
+      "@ngcc-new-template/auth-form": ["libs/auth-form/src/index.ts"],
       "@ngcc-new-template/shared/data-access-user": [
         "libs/shared/data-access-user/src/index.ts"
       ],

@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
-
-import { RemoteEntryComponent } from './entry.component';
-import { remoteRoutes } from './entry.routes';
+import { remoteRoutes } from './auth.routes';
 
 @NgModule({
-  declarations: [RemoteEntryComponent],
   imports: [CommonModule, RouterModule.forChild(remoteRoutes)],
-  providers: [],
+  declarations: [LoginComponent],
 })
-export class RemoteEntryModule {}
+export class AuthFormModule {}

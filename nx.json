@@ -18,9 +18,7 @@
     }
   },
   "workspaceLayout": {
-    "libsDir": "libs",
-    "appsDir": "apps",
-    "projectNameAndRootFormat": "derived"
+    "projectNameAndRootFormat": "as-provided"
   },
   "targetDefaults": {
     "build": {
