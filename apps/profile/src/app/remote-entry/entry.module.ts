@@ -4,11 +4,10 @@ import { RouterModule } from '@angular/router';
 
 import { RemoteEntryComponent } from './entry.component';
 import { remoteRoutes } from './entry.routes';
-import { LoginLoginFormModule } from '@ngcc-new-template/login/login-form';
 
 @NgModule({
   declarations: [RemoteEntryComponent],
-  imports: [CommonModule, LoginLoginFormModule, RouterModule.forChild(remoteRoutes)],
+  imports: [CommonModule, RouterModule.forChild(remoteRoutes)],
   providers: [],
 })
 export class RemoteEntryModule {}

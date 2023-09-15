@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "nx serve",
     "serve:dashboard": "nx serve dashboard --devRemotes=login",
-    "serve:app": "nx serve dashboard --devRemotes=login",
+    "serve:setting": "nx serve setting --devRemotes=login",
     "serve:login": "nx serve login",
     "graph": "nx graph",
     "local-server": "http-server -p 8080 -c-1 dist/apps/login"
