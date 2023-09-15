@@ -20,7 +20,8 @@
       ],
       "@ngcc-new-template/shared/data-access-user": [
         "libs/shared/data-access-user/src/index.ts"
-      ]
+      ],
+      "@ngcc-new-template/top-menu": ["libs/top-menu/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
