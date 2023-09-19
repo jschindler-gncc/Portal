@@ -24,7 +24,8 @@
           "apps/login/src/assets"
         ],
         "styles": [
-          "apps/login/src/styles.scss"
+          "apps/login/src/styles.scss",
+          "libs/shared/ui/src/lib/styles/main.scss"
         ],
         "scripts": [],
         "customWebpackConfig": {

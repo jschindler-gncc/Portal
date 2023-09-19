@@ -1,1 +1,27 @@
 <p>login works!</p>
+<mdb-form-control>
+    <input mdbInput type="text" id="form1" class="form-control" />
+    <label mdbLabel class="form-label" for="form1">Example label</label>
+  </mdb-form-control>
+
+  <h1>Hero Form</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+          <label for="name">Name</label>
+          <smart-input required class="form-component" formControlName="login">
+          </smart-input>
+          <smart-password-text-box required class="form-component" formControlName="password"></smart-password-text-box>
+          <smart-button class="primary">Login</smart-button>
+          <!-- <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+              <div *ngIf="name.errors.required">
+                  Name is required.
+              </div>
+              <div *ngIf="name.errors.minlength">
+                  Name must be at least 4 characters long.
+              </div>
+              <div *ngIf="name.errors.forbiddenName">
+                  Name cannot be Bob.
+              </div>
+          </div> -->
+      </div>
+  </form>

@@ -22,7 +22,9 @@
     "@angular/router": "~16.2.0",
     "@angular/service-worker": "~16.2.0",
     "@nx/angular": "16.8.1",
+    "mdb-angular-ui-kit": "^5.0.0",
     "rxjs": "~7.8.0",
+    "smart-webcomponents-angular": "^16.0.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },
