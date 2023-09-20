@@ -1,27 +1,19 @@
-<p>login works!</p>
-<mdb-form-control>
-    <input mdbInput type="text" id="form1" class="form-control" />
-    <label mdbLabel class="form-label" for="form1">Example label</label>
-  </mdb-form-control>
 
-  <h1>Hero Form</h1>
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <div class="form-row">
-          <label for="name">Name</label>
-          <smart-input required class="form-component" formControlName="login">
-          </smart-input>
-          <smart-password-text-box required class="form-component" formControlName="password"></smart-password-text-box>
-          <smart-button class="primary">Login</smart-button>
-          <!-- <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
-              <div *ngIf="name.errors.required">
-                  Name is required.
+          <h2>Login</h2>
+
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <smart-input formControlName="login" [classList]="'form-control'"></smart-input>
               </div>
-              <div *ngIf="name.errors.minlength">
-                  Name must be at least 4 characters long.
+    
+              <div class="mb-3">
+                <label class="form-label">Password</label>
+                <smart-password-text-box formControlName="password" [classList]="'form-control'"></smart-password-text-box>
+                <a routerLink="/forgot-password" class="small">Forgot your password?</a>
               </div>
-              <div *ngIf="name.errors.forbiddenName">
-                  Name cannot be Bob.
+    
+              <div class="text-center">
+                <smart-button class="primary">Sign in</smart-button>
               </div>
-          </div> -->
-      </div>
-  </form>
+          </form>
