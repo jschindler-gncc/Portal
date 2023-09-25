@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ChartLazyLoad } from 'modules/products/src/lib';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ngcc-modules';
+  readonly ChartLazyLoad = ChartLazyLoad;
+
+  chartReady(message: string) {
+    console.log(message);
+  }
 }

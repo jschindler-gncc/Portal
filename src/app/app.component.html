@@ -1,1 +1,14 @@
+<ng-container
+  [loadModule]="ChartLazyLoad"
+  [moduleClass]="'pms-chart'"
+  [loadWithSpinner]="true"
+  [executorInstance]="this"
+  [moduleOutputs]="{
+    chartReady: chartReady
+  }"
+  [moduleInputs]="{
+    message: 'chart-container works!'
+  }"
+>
+</ng-container>
 <app-nx-welcome></app-nx-welcome> <router-outlet></router-outlet>
