@@ -19,7 +19,8 @@
       "dashboard": ["modules/dashboard/feature/src/index.ts"],
       "lazy-modules": ["modules/lazy-modules/src/index.ts"],
       "products": ["modules/products/src/index.ts"],
-      "shared-ui": ["modules/shared-ui/src/index.ts"]
+      "shared-ui": ["modules/shared-ui/src/index.ts"],
+      "test-lib": ["modules/test-lib/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

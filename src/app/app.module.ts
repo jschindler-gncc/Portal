@@ -14,6 +14,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TestLibModule } from 'test-lib';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -33,6 +34,7 @@ export function createTranslateLoader(http: HttpClient) {
       registrationStrategy: 'registerWhenStable:30000',
     }),
     LazyModulesModule,
+    TestLibModule,
     StoreModule.forRoot(
       {},
       {
