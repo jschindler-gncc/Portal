@@ -1,4 +1,5 @@
 import { NgModule, isDevMode } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
   declarations: [AppComponent, NxWelcomeComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
