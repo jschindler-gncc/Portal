@@ -13,7 +13,7 @@ import { fromEvent } from 'rxjs';
   templateUrl: './dashboard-layout.component.html',
   styleUrls: ['./dashboard-layout.component.scss'],
 })
-export class DashboardLayoutComponent {
+export class DashboardLayoutComponent implements OnInit, AfterViewInit {
   @ViewChild('sidenav', { static: true }) sidenav!: MdbSidenavComponent;
   title = 'mdb-angular-admin-dashboards';
 
