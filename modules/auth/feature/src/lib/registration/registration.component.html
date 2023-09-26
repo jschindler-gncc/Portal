@@ -1,19 +1,14 @@
-<form>
+<h2 class="text-center">Registration</h2>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   <!-- Name input -->
   <mdb-form-control class="mb-4">
-    <input mdbInput type="text" id="registerName" class="form-control" />
+    <input mdbInput type="text" id="registerName" class="form-control" formControlName="name" />
     <label mdbLabel class="form-label" for="registerName">Name</label>
-  </mdb-form-control>
-
-  <!-- Username input -->
-  <mdb-form-control class="mb-4">
-    <input mdbInput type="text" id="registerUsername" class="form-control" />
-    <label mdbLabel class="form-label" for="registerUsername">Username</label>
   </mdb-form-control>
 
   <!-- Email input -->
   <mdb-form-control class="mb-4">
-    <input mdbInput type="email" id="registerEmail" class="form-control" />
+    <input mdbInput type="email" id="registerEmail" class="form-control" formControlName="email" />
     <label mdbLabel class="form-label" for="registerEmail">Email</label>
   </mdb-form-control>
 
@@ -24,6 +19,7 @@
       type="password"
       id="registerPassword"
       class="form-control"
+      formControlName="password"
     />
     <label mdbLabel class="form-label" for="registerPassword">Password</label>
   </mdb-form-control>
@@ -35,6 +31,7 @@
       type="password"
       id="registerRepeatPassword"
       class="form-control"
+      formControlName="confirmPassword"
     />
     <label mdbLabel class="form-label" for="registerRepeatPassword"
       >Repeat password</label

@@ -6,12 +6,14 @@ import { RouterModule } from '@angular/router';
 import { SharedUiModule } from 'shared-ui';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     SharedUiModule,
+    ReactiveFormsModule
   ],
   declarations: [AuthComponent, LoginComponent, RegistrationComponent],
 })
