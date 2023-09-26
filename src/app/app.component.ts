@@ -9,15 +9,12 @@ import { ChartLazyLoad } from 'modules/products/src/lib';
 })
 export class AppComponent {
 
-  constructor(translate: TranslateService) {
-    // this language will be used as a fallback when a translation isn't found in the current language
-    translate.setDefaultLang('en');
+  readonly ChartLazyLoad = ChartLazyLoad;
 
-     // the lang to use, if the lang isn't available, it will use the current loader to get them
+  constructor(translate: TranslateService) {
+    translate.setDefaultLang('en');
     translate.use('en');
   }
-  title = 'ngcc-modules';
-  readonly ChartLazyLoad = ChartLazyLoad;
 
   chartReady(message: string) {
     console.log(message);
