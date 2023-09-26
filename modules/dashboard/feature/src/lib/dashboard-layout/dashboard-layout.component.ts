@@ -5,6 +5,7 @@ import {
   NgZone,
   ViewChild,
 } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { MdbSidenavComponent } from 'mdb-angular-ui-kit/sidenav';
 import { fromEvent } from 'rxjs';
 
@@ -19,10 +20,14 @@ export class DashboardLayoutComponent implements OnInit, AfterViewInit {
 
   mode = window.innerWidth >= 1400 ? 'side' : 'over';
   hidden = window.innerWidth >= 1400 ? false : true;
+  currentLang: string;
+  iconFlag: string;
 
-  constructor(private ngZone: NgZone) {}
+  constructor(private ngZone: NgZone, private translate: TranslateService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.currentLang = this.translate.currentLang;
+  }
 
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
@@ -52,5 +57,11 @@ export class DashboardLayoutComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.sidenav.show();
     });
+  }
+
+  selectLanguage(lang: string, icon: string) {
+    this.currentLang = lang;
+    this.iconFlag = icon;
+    this.translate.use(lang);
   }
 }

@@ -116,7 +116,7 @@
                 role="button"
                 aria-expanded="false"
               >
-                <i class="flag-united-kingdom flag m-0"></i>
+                <i class="flag-united-kingdom flag m-0" [class]="iconFlag"></i>
               </a>
               <ul
                 mdbDropdownMenu
@@ -125,8 +125,9 @@
               >
                 <li>
                   <a class="dropdown-item"
+                    (click)="selectLanguage('en', 'flag-united-kingdom')"
                     ><i class="flag-united-kingdom flag"></i>English
-                    <i class="fa fa-check text-success ms-2"></i
+                    <i class="fa fa-check text-success ms-2" *ngIf="currentLang === 'en'"></i
                   ></a>
                 </li>
                 <li>
@@ -134,7 +135,10 @@
                 </li>
                 <li>
                   <a class="dropdown-item"
-                    ><i class="flag-poland flag"></i>Polski</a
+                    (click)="selectLanguage('pl', 'flag-poland')"
+                    ><i class="flag-poland flag"></i>Polski
+                    <i class="fa fa-check text-success ms-2" *ngIf="currentLang === 'pl'"></i
+                  ></a
                   >
                 </li>
                 <li>
@@ -201,7 +205,7 @@
               </a>
               <ul
                 mdbDropdownMenu
-                class="dropdown-menu"
+                class="dropdown-menu dropdown-menu-end"
                 aria-labelledby="navbarDropdownMenuLink"
               >
                 <li><a class="dropdown-item">My profile</a></li>
