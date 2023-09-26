@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "auth": ["modules/auth/src/index.ts"],
-      "dashboard": ["modules/dashboard/src/index.ts"],
+      "auth": ["modules/auth/feature/src/index.ts"],
+      "dashboard": ["modules/dashboard/feature/src/index.ts"],
       "lazy-modules": ["modules/lazy-modules/src/index.ts"],
       "products": ["modules/products/src/index.ts"]
     }

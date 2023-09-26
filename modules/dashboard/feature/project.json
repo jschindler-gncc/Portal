@@ -1,7 +1,7 @@
 {
   "name": "dashboard",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "modules/dashboard/src",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "modules/dashboard/feature/src",
   "prefix": "lib",
   "tags": [],
   "projectType": "library",
@@ -10,7 +10,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "modules/dashboard/jest.config.ts",
+        "jestConfig": "modules/dashboard/feature/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -25,8 +25,8 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "modules/dashboard/**/*.ts",
-          "modules/dashboard/**/*.html"
+          "modules/dashboard/feature/**/*.ts",
+          "modules/dashboard/feature/**/*.html"
         ]
       }
     }

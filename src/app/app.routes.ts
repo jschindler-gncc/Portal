@@ -6,7 +6,7 @@ export const appRoutes: Route[] = [
     loadComponent: () => import('dashboard').then((m) => m.DashboardModule),
   },
   {
-    path: 'login',
+    path: 'auth',
     loadComponent: () => import('auth').then((m) => m.AuthModule),
   },
   {

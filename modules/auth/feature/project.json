@@ -1,7 +1,7 @@
 {
   "name": "auth",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "modules/auth/src",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "modules/auth/feature/src",
   "prefix": "lib",
   "tags": [],
   "projectType": "library",
@@ -10,7 +10,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "modules/auth/jest.config.ts",
+        "jestConfig": "modules/auth/feature/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -24,7 +24,10 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["modules/auth/**/*.ts", "modules/auth/**/*.html"]
+        "lintFilePatterns": [
+          "modules/auth/feature/**/*.ts",
+          "modules/auth/feature/**/*.html"
+        ]
       }
     }
   }
