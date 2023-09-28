@@ -7,14 +7,20 @@ import { SharedUiModule } from 'shared-ui';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     SharedUiModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  declarations: [AuthComponent, LoginComponent, RegistrationComponent],
+  declarations: [
+    AuthComponent,
+    LoginComponent,
+    RegistrationComponent,
+    ForgotPasswordComponent,
+  ],
 })
 export class AuthModule {}
