@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpService } from 'core';
 import { Observable } from 'rxjs';
 
@@ -7,13 +7,14 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private pathUrl = 'auth/';
+  private pathUrl = '';
+  private http = inject(HttpService);
 
-  constructor(
-    private http: HttpService
-  ) { }
+  login(auth: any): Observable<any> {
+    return this.http.post(this.pathUrl + 'login', auth);
+  }
 
-  login(user: any): Observable<any> {
-    return this.http.post(this.pathUrl, user);
+  register(user: any): Observable<any> {
+    return this.http.post(this.pathUrl + 'register', user);
   }
 }

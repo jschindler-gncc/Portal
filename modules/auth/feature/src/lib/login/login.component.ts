@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'auth-data-access';
+import { AuthFacade } from 'auth-data-access';
 
 @Component({
   selector: 'app-login',
@@ -8,9 +8,11 @@ import { AuthService } from 'auth-data-access';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  loginForm: FormGroup;
 
-  constructor(private authService: AuthService) {}
+  private authFacade = inject(AuthFacade);
+
+  serverError = this.authFacade.loginError$;
+  loginForm: FormGroup;
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -20,14 +22,6 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    this.authService.login(this.loginForm.value).subscribe(
-      (res) => {
-        console.log(res);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-    console.log(this.loginForm.value);
+    this.authFacade.login(this.loginForm.value);
   }
 }

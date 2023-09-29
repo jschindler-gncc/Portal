@@ -19,6 +19,7 @@ export class HttpService {
   }
 
   post<T>(url: string, body: any): Observable<T> {
+    console.log(this.baseUrl + url);
     return this.http
       .post<T>(this.baseUrl + url, body)
       .pipe(catchError(e => this.handleError(e)));

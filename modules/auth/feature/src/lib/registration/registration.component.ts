@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthFacade } from 'auth-data-access';
 
 @Component({
   selector: 'app-registration',
@@ -7,9 +8,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent {
-  registerForm: FormGroup;
 
-  constructor() {}
+  private authFacade = inject(AuthFacade);
+
+  serverError = this.authFacade.registerError$;
+  registerForm: FormGroup;
 
   ngOnInit() {
     this.registerForm = new FormGroup({
@@ -22,5 +25,6 @@ export class RegistrationComponent {
 
   onSubmit() {
     console.log(this.registerForm.value);
+    this.authFacade.register(this.registerForm.value);
   }
 }

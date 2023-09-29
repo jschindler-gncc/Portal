@@ -1,7 +1,18 @@
-/**
- * Interface for the 'Auth' data
- */
+import { User } from "auth-domain";
+
 export interface AuthEntity {
-  id: string | number; // Primary ID
-  name: string;
+  accessToken: string;
+  user: User | null;
+}
+
+export interface AuthLogin {
+  email: string, 
+  password: string
+}
+
+export interface AuthRegister {
+  name: string,
+  email: string, 
+  password: string, 
+  confirmPassword: string
 }

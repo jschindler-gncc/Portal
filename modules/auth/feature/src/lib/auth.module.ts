@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { AuthDataAccessModule } from 'auth-data-access';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     RouterModule.forChild(routes),
     SharedUiModule,
     ReactiveFormsModule,
+    AuthDataAccessModule
   ],
   declarations: [
     AuthComponent,
