@@ -18,6 +18,7 @@
       "auth": ["modules/auth/feature/src/index.ts"],
       "auth-data-access": ["modules/auth/data-access/src/index.ts"],
       "auth-domain": ["modules/auth/domain/src/index.ts"],
+      "core": ["modules/core/src/index.ts"],
       "dashboard": ["modules/dashboard/feature/src/index.ts"],
       "lazy-modules": ["modules/lazy-modules/src/index.ts"],
       "products": ["modules/products/src/index.ts"],

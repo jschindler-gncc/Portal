@@ -4,3 +4,4 @@ export * from './lib/+state/auth.selectors';
 export * from './lib/+state/auth.reducer';
 export * from './lib/+state/auth.actions';
 export * from './lib/auth-data-access.module';
+export * from './lib/auth.service';
