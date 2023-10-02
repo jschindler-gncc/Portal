@@ -1,14 +1,16 @@
 import { Injectable, inject } from '@angular/core';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
-import { switchMap, catchError, of, map } from 'rxjs';
+import { switchMap, catchError, of, map, tap } from 'rxjs';
 import { AuthActions } from './auth.actions';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 
 @Injectable()
 export class AuthEffects {
   private actions$ = inject(Actions);
   private authService = inject(AuthService);
+  private router = inject(Router);
 
   login$ = createEffect(() =>
     this.actions$.pipe(
@@ -29,6 +31,19 @@ export class AuthEffects {
         this.authService.register(auth).pipe(
           map(({ accessToken }) => AuthActions.loginSuccess(accessToken)),
           catchError((error) => of(AuthActions.registerFailure({ error })))
+        )
+      )
+    )
+  );
+
+  forgotPassword$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(AuthActions.forgotPassword),
+      switchMap((email) => 
+        this.authService.forgotPassword(email).pipe(
+          map(() => AuthActions.forgotPasswordSuccess()),
+          tap(() => this.router.navigate(['/auth/login'])),
+          catchError((error) => of(AuthActions.forgotPasswordFailure({ error })))
         )
       )
     )

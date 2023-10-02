@@ -11,7 +11,7 @@ export class LoginComponent {
 
   private authFacade = inject(AuthFacade);
 
-  serverError = this.authFacade.loginError$;
+  serverError = this.authFacade.authError$;
   loginForm: FormGroup;
 
   ngOnInit() {

@@ -11,7 +11,7 @@ export class RegistrationComponent {
 
   private authFacade = inject(AuthFacade);
 
-  serverError = this.authFacade.registerError$;
+  serverError = this.authFacade.authError$;
   registerForm: FormGroup;
 
   ngOnInit() {

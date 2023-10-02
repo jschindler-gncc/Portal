@@ -1,4 +1,4 @@
-import { createActionGroup, props } from '@ngrx/store';
+import { createActionGroup, emptyProps, props } from '@ngrx/store';
 import { AuthEntity, AuthLogin, AuthRegister } from './auth.models';
 
 export const AuthActions = createActionGroup({
@@ -9,6 +9,9 @@ export const AuthActions = createActionGroup({
     loginFailure: props<{ error: any }>(),
     register: props<AuthRegister>(),
     registerSuccess: props<{ auth: AuthEntity}>(),
-    registerFailure: props<{ error: any }>()
+    registerFailure: props<{ error: any }>(),
+    forgotPassword: props<{email: string}>(),
+    forgotPasswordSuccess: emptyProps(),
+    forgotPasswordFailure: props<{ error: any }>()
   }
 });

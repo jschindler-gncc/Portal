@@ -9,8 +9,7 @@ import { AuthLogin, AuthRegister } from './auth.models';
 export class AuthFacade {
   private readonly store = inject(Store);
 
-  loginError$ = this.store.select(AuthSelectors.selectLoginError);
-  registerError$ = this.store.select(AuthSelectors.selectLoginError);
+  authError$ = this.store.select(AuthSelectors.selectAuthError);
 
   login(auth: AuthLogin) {
     this.store.dispatch(AuthActions.login(auth));
@@ -18,5 +17,9 @@ export class AuthFacade {
 
   register(auth: AuthRegister) {
     this.store.dispatch(AuthActions.register(auth));
+  }
+
+  forgotPassword(email: {email: string}) {
+    this.store.dispatch(AuthActions.forgotPassword(email));
   }
 }

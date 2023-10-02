@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthFacade } from 'auth-data-access';
 
 @Component({
   selector: 'app-forgot-password',
@@ -7,9 +8,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./forgot-password.component.scss'],
 })
 export class ForgotPasswordComponent {
-  forgetPasswordForm: FormGroup;
 
-  constructor() {}
+  private authFacade = inject(AuthFacade);
+
+  forgetPasswordForm: FormGroup;
 
   ngOnInit() {
     this.forgetPasswordForm = new FormGroup({
@@ -19,5 +21,6 @@ export class ForgotPasswordComponent {
 
   onSubmit() {
     console.log(this.forgetPasswordForm.value);
+    this.authFacade.forgotPassword(this.forgetPasswordForm.value);
   }
 }

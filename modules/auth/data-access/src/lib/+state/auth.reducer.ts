@@ -41,7 +41,13 @@ const reducer = createReducer(
     error: null,
   })),
   on(AuthActions.registerSuccess, (state, { auth }) => ({ ...state, loaded: true, ...auth })),
-  on(AuthActions.registerFailure, (state, { error }) => ({ ...state, error }))
+  on(AuthActions.registerFailure, (state, { error }) => ({ ...state, error })),
+  on(AuthActions.forgotPassword, (state) => ({
+    ...state,
+    loaded: false,
+    error: null,
+  })),
+  on(AuthActions.forgotPasswordFailure, (state, { error }) => ({ ...state, error }))
 );
 
 export function authReducer(state: AuthState | undefined, action: Action) {

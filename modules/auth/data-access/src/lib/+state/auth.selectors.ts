@@ -7,14 +7,7 @@ export const selectAuthState =
 
 // const { selectAll, selectEntities } = authAdapter.getSelectors();
 
-export const selectAuthLoaded = createSelector(
-  selectAuthState,
-  (state: AuthState) => state.loaded
-);
-
-export const selectLoginError = createSelector(
+export const selectAuthError = createSelector(
   selectAuthState,
   (state: AuthState) => state.error
 );
-
-
