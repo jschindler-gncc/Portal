@@ -21,4 +21,12 @@ export class AuthService {
   forgotPassword(email: any): Observable<any> {
     return this.http.post(this.pathUrl + 'forgotPassword', email);
   }
+
+  getToken(): string | null{
+    return localStorage.getItem('token');
+  }
+
+  logout() {
+    
+  }
 }

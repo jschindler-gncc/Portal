@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
 import { switchMap, catchError, of, map, tap } from 'rxjs';
 import { AuthActions } from './auth.actions';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { ToastService } from 'modules/shared-ui/src/lib/toast/toast.service';
 
@@ -21,6 +21,7 @@ export class AuthEffects {
         this.authService.login(auth).pipe(
           map((auth) => {
             this.toastService.success('Success');
+            localStorage.setItem('token', auth.accessToken);
             return AuthActions.loginSuccess({auth})
           }),
           tap(() => this.router.navigate(['/dashboard'])),
@@ -38,9 +39,10 @@ export class AuthEffects {
       ofType(AuthActions.register),
       switchMap((auth) => 
         this.authService.register(auth).pipe(
-          map(({ accessToken }) => {
+          map((auth) => {
             this.toastService.success('Success');
-            return AuthActions.registerSuccess(accessToken)
+            localStorage.setItem('token', auth.accessToken);
+            return AuthActions.registerSuccess(auth)
           }),
           tap(() => this.router.navigate(['/dashboard'])),
           catchError((error) => {

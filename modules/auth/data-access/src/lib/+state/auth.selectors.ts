@@ -11,3 +11,8 @@ export const selectAuthError = createSelector(
   selectAuthState,
   (state: AuthState) => state.error
 );
+
+export const selectIsAuth = createSelector(
+  selectAuthState,
+  (state) => !!state.accessToken
+);
