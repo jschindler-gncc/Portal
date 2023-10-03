@@ -10,8 +10,6 @@ import { AuthFacade } from 'auth-data-access';
 export class LoginComponent {
 
   private authFacade = inject(AuthFacade);
-
-  serverError = this.authFacade.authError$;
   loginForm: FormGroup;
 
   ngOnInit() {

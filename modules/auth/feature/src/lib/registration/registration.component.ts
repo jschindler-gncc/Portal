@@ -10,8 +10,6 @@ import { AuthFacade } from 'auth-data-access';
 export class RegistrationComponent {
 
   private authFacade = inject(AuthFacade);
-
-  serverError = this.authFacade.authError$;
   registerForm: FormGroup;
 
   ngOnInit() {
