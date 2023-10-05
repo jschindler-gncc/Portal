@@ -13,7 +13,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
-import { TestLibModule } from 'test-lib';
 import { ErrorInterceptor, JwtInterceptor } from 'auth-data-access';
 
 export function createTranslateLoader(http: HttpClient) {
@@ -34,7 +33,6 @@ export function createTranslateLoader(http: HttpClient) {
       registrationStrategy: 'registerWhenStable:30000',
     }),
     LazyModulesModule,
-    TestLibModule,
     StoreModule.forRoot(
       {},
       {
@@ -61,7 +59,7 @@ export function createTranslateLoader(http: HttpClient) {
           useFactory: (createTranslateLoader),
           deps: [HttpClient],
       },
-      defaultLanguage: 'en'
+      defaultLanguage: 'de'
     }),
   ],
   providers: [
