@@ -64,4 +64,8 @@ export class DashboardLayoutComponent implements OnInit, AfterViewInit {
     this.iconFlag = icon;
     this.translate.use(lang);
   }
+
+  toggleSkin() {
+    document.body.classList.toggle('dark');
+  }
 }

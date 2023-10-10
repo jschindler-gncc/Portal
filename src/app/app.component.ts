@@ -12,8 +12,8 @@ export class AppComponent {
   readonly ChartLazyLoad = ChartLazyLoad;
 
   constructor(translate: TranslateService) {
-    translate.setDefaultLang('de');
-    translate.use('de');
+    translate.setDefaultLang('en');
+    translate.use('en');
   }
 
   chartReady(message: string) {
