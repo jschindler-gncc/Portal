@@ -8,9 +8,8 @@ import { AuthFacade } from 'auth-data-access';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-
   private authFacade = inject(AuthFacade);
-  loginForm: FormGroup;
+  public loginForm!: FormGroup;
 
   ngOnInit() {
     this.loginForm = new FormGroup({

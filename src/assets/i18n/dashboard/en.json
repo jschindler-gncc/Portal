@@ -1,0 +1,23 @@
+{
+    "navbar": {
+        "search": "Search (ctrl + '/' to focus)",
+        "notification": {
+            "item1": "Some news",
+            "item2": "Another news",
+            "item3": "Something else here"
+        },
+        "profile": {
+            "item1": "My profile",
+            "item2": "Settings",
+            "item3": "Logout"
+        }
+    },
+    "menu": {
+        "User profile": "User profile",
+        "User management": "User management",
+        "Management": "Management",
+        "Sub Menu": "Sub Menu",
+        "Sub Menu 1": "Sub Menu 1",
+        "Sub Menu 2": "Sub Menu 2"
+    }
+}

@@ -28,7 +28,7 @@
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
     "@nx/angular": "16.9.0",
-    "mdb-angular-ui-kit": "file:mdb-angular-ui-kit-5.0.0.tgz",
+    "mdb-angular-ui-kit": "file:MDB5-Angular-UI-KIT-Pro-Advanced-5.1.0.zip-20231122T225428Z-001.tgz",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

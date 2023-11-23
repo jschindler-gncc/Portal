@@ -1,0 +1,25 @@
+<li mdbDropdown class="nav-item dropdown">
+    <a
+      mdbDropdownToggle
+      class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow"
+
+      id="navbarDropdown"
+      role="button"
+      aria-expanded="false"
+    >
+      <i class="{{ iconFlag }} flag m-0"></i>
+    </a>
+    <ul
+      mdbDropdownMenu
+      class="dropdown-menu dropdown-menu-end"
+      aria-labelledby="navbarDropdown"
+    >
+        <li *ngFor="let item of items">
+            <a class="dropdown-item" (click)="selectLanguage(item.code, item.icon)">
+                <i class="{{ item.icon }} flag"></i>
+                {{ item.name }}
+                <i class="fa fa-check text-success ms-2" *ngIf="currentLang === item.code"></i
+            ></a>
+        </li>
+    </ul>
+</li>

@@ -3,33 +3,10 @@
       <a class="d-flex justify-content-center py-4" href="#!" mdbRipple rippleColor="primary" style="min-width: 240px;">
         <img id="MDB-logo" src="https://mdbootstrap.com/wp-content/uploads/2018/06/logo-mdb-jquery-small.png" alt="MDB Logo" draggable="false">
       </a>
-      <ul class="sidenav-menu">
-        <mdb-sidenav-item>
-          <a class="sidenav-link"
-          ><i class="fas fa-cogs fa-fw me-3"></i><span>Management</span></a
-        >
-        <ul mdbCollapse class="sidenav-collapse">
-          <li class="sidenav-item">
-            <a class="sidenav-link" routerLink="/user-profile" routerLinkActive="active">User profile</a>
-          </li>
-          <li class="sidenav-item">
-            <a class="sidenav-link" routerLink="/user-management" routerLinkActive="active">User management</a>
-          </li>
-          <li class="sidenav-item">
-            <a class="sidenav-link" routerLink="/login-register" routerLinkActive="active">Login / register page</a>
-          </li>
-          <li class="sidenav-item">
-            <a class="sidenav-link" routerLink="/forgot-password" routerLinkActive="active">Forgot password page</a>
-          </li>
-          <li class="sidenav-item">
-            <a class="sidenav-link" routerLink="/change-password" routerLinkActive="active">Change password page</a>
-          </li>
-          <li class="sidenav-item">
-            <a class="sidenav-link" routerLink="/error" routerLinkActive="active">404 page</a>
-          </li>
-        </ul>
-        </mdb-sidenav-item>
-      </ul>
+
+      <ng-container *ngIf="(menu$ | async) as config" >
+        <dashboard-menu *ngFor="let item of config" [config]="item"></dashboard-menu>
+      </ng-container>
     </mdb-sidenav>
     <mdb-sidenav-content #sidenavContent>
       <!-- Navbar -->
@@ -55,7 +32,7 @@
               autocomplete="off"
               type="search"
               class="form-control rounded"
-              placeholder='Search (ctrl + "/" to focus)'
+              [placeholder]="'navbar.search' | translate"
               style="min-width: 225px"
             />
             <span class="input-group-text border-0"
@@ -85,11 +62,10 @@
                 class="dropdown-menu dropdown-menu-end"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <li><a class="dropdown-item">Some news</a></li>
-                <li><a class="dropdown-item">Another news</a></li>
-                <li>
-                  <a class="dropdown-item">Something else here</a>
-                </li>
+                <li><a class="dropdown-item">{{ 'navbar.notification.item1' | translate }}</a></li>
+                <li><a class="dropdown-item">{{ 'navbar.notification.item2' | translate }}</a></li>
+                <li><a class="dropdown-item">{{ 'navbar.notification.item3' | translate }}</a></li>
+
               </ul>
             </li>
 
@@ -112,78 +88,10 @@
               </a>
             </li>
   
-            <!-- Icon dropdown -->
-            <li mdbDropdown class="nav-item dropdown">
-              <a
-                mdbDropdownToggle
-                class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow"
-  
-                id="navbarDropdown"
-                role="button"
-                aria-expanded="false"
-              >
-                <i class="flag-united-kingdom flag m-0" [class]="iconFlag"></i>
-              </a>
-              <ul
-                mdbDropdownMenu
-                class="dropdown-menu dropdown-menu-end"
-                aria-labelledby="navbarDropdown"
-              >
-                <li>
-                  <a class="dropdown-item"
-                    (click)="selectLanguage('en', 'flag-united-kingdom')"
-                    ><i class="flag-united-kingdom flag"></i>English
-                    <i class="fa fa-check text-success ms-2" *ngIf="currentLang === 'en'"></i
-                  ></a>
-                </li>
-                <li>
-                  <hr class="dropdown-divider" />
-                </li>
-                <li>
-                  <a class="dropdown-item"
-                    (click)="selectLanguage('pl', 'flag-poland')"
-                    ><i class="flag-poland flag"></i>Polski
-                    <i class="fa fa-check text-success ms-2" *ngIf="currentLang === 'pl'"></i
-                  ></a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item"
-                    ><i class="flag-china flag"></i>中文</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item"
-                    ><i class="flag-japan flag"></i>日本語</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item"
-                    ><i class="flag-germany flag"></i>Deutsch</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item"
-                    ><i class="flag-france flag"></i>Français</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item"
-                    ><i class="flag-spain flag"></i>Español</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item"
-                    ><i class="flag-ukraine flag"></i>Українська</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item"
-                    ><i class="flag-portugal flag"></i>Português</a
-                  >
-                </li>
-              </ul>
-            </li>
+            <!-- Icon language -->
+            <ng-container *ngIf="(language$ | async) as items">
+              <language [items]="items"></language>
+            </ng-container>
   
             <!-- Avatar -->
             <li mdbDropdown class="nav-item dropdown">
@@ -214,9 +122,9 @@
                 class="dropdown-menu dropdown-menu-end"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <li><a class="dropdown-item">My profile</a></li>
-                <li><a class="dropdown-item">Settings</a></li>
-                <li><a class="dropdown-item">Logout</a></li>
+                <li><a class="dropdown-item">{{ 'navbar.profile.item1' | translate }}</a></li>
+                <li><a class="dropdown-item">{{ 'navbar.profile.item2' | translate }}</a></li>
+                <li><a class="dropdown-item">{{ 'navbar.profile.item3' | translate }}</a></li>
               </ul>
             </li>
           </ul>

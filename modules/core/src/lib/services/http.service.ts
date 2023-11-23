@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpStatusCode } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { catchError } from 'rxjs/operators';
@@ -19,7 +19,6 @@ export class HttpService {
   }
 
   post<T>(url: string, body: any): Observable<T> {
-    console.log(this.baseUrl + url);
     return this.http
       .post<T>(this.baseUrl + url, body)
       .pipe(catchError(e => this.handleError(e)));
@@ -38,7 +37,7 @@ export class HttpService {
   }
 
   private handleError(e: any) {
-    if (e.status === 500) {
+    if (e.status === HttpStatusCode.InternalServerError) {
       return throwError({
         isSuccess: false,
         result: 'System error occurred, please contact support',

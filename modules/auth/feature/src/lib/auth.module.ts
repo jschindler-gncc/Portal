@@ -9,7 +9,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { AuthDataAccessModule } from 'auth-data-access';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslationModule } from 'translation';
+import { LIB_NAME } from 'core';
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { TranslateModule } from '@ngx-translate/core';
     SharedUiModule,
     ReactiveFormsModule,
     AuthDataAccessModule,
-    TranslateModule,
+    TranslationModule.forChild(LIB_NAME.AUTH),
   ],
   declarations: [
     AuthComponent,

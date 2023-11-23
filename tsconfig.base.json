@@ -20,10 +20,12 @@
       "auth-domain": ["modules/auth/domain/src/index.ts"],
       "core": ["modules/core/src/index.ts"],
       "dashboard": ["modules/dashboard/feature/src/index.ts"],
+      "dashboard-data-access": ["modules/dashboard/data-access/src/index.ts"],
       "lazy-modules": ["modules/lazy-modules/src/index.ts"],
       "products": ["modules/products/src/index.ts"],
+      "shared": ["modules/shared/src/index.ts"],
       "shared-ui": ["modules/shared-ui/src/index.ts"],
-      "test-lib": ["modules/test-lib/src/index.ts"]
+      "translation": ["modules/translation/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

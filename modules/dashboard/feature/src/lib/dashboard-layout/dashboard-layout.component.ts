@@ -5,10 +5,9 @@ import {
   NgZone,
   ViewChild,
 } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import { MdbSidenavComponent } from 'mdb-angular-ui-kit/sidenav';
-import { fromEvent } from 'rxjs';
-
+import { Observable, fromEvent } from 'rxjs';
+import { DashboardFacade, LanguageEntity, MenuEntity } from 'dashboard-data-access';
 @Component({
   selector: 'app-dashboard-layout',
   templateUrl: './dashboard-layout.component.html',
@@ -16,17 +15,23 @@ import { fromEvent } from 'rxjs';
 })
 export class DashboardLayoutComponent implements OnInit, AfterViewInit {
   @ViewChild('sidenav', { static: true }) sidenav!: MdbSidenavComponent;
-  title = 'mdb-angular-admin-dashboards';
+  public title = 'mdb-angular-admin-dashboards';
 
-  mode = window.innerWidth >= 1400 ? 'side' : 'over';
-  hidden = window.innerWidth >= 1400 ? false : true;
-  currentLang: string;
-  iconFlag: string;
+  public mode = window.innerWidth >= 1400 ? 'side' : 'over';
+  public hidden = window.innerWidth >= 1400 ? false : true;
 
-  constructor(private ngZone: NgZone, private translate: TranslateService) {}
+  public menu$!: Observable<MenuEntity[]>;
+  public language$!: Observable<LanguageEntity[]>;
+
+  constructor(
+    private ngZone: NgZone,
+    private dashboardFacade: DashboardFacade,
+  ) {}
 
   ngOnInit(): void {
-    this.currentLang = this.translate.currentLang;
+    this.dashboardFacade.getDashboardConfig({ id: 1 }) // put userId in the future;
+    this.menu$ = this.dashboardFacade.menu$;
+    this.language$ = this.dashboardFacade.language$;
   }
 
   ngAfterViewInit() {
@@ -57,12 +62,6 @@ export class DashboardLayoutComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.sidenav.show();
     });
-  }
-
-  selectLanguage(lang: string, icon: string) {
-    this.currentLang = lang;
-    this.iconFlag = icon;
-    this.translate.use(lang);
   }
 
   toggleSkin() {
