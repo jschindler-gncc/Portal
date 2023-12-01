@@ -5,6 +5,7 @@ import { AuthActions } from './auth.actions';
 import { Router } from '@angular/router';
 import { ToastService } from 'shared-ui';
 import { AuthService, LOCAL_STORAGE } from 'core';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Injectable()
@@ -13,6 +14,7 @@ export class AuthEffects {
   private authService = inject(AuthService);
   private router = inject(Router);
   private toastService = inject(ToastService);
+  private translate = inject(TranslateService);
 
   login$ = createEffect(() =>
     this.actions$.pipe(
@@ -20,7 +22,7 @@ export class AuthEffects {
       switchMap((auth) => 
         this.authService.login(auth).pipe(
           map((auth) => {
-            this.toastService.success('Success');
+            this.toastService.success(this.translate.instant('auth.login.success'));
             localStorage.setItem(LOCAL_STORAGE.TOKEN, auth.accessToken);
             return AuthActions.loginSuccess({auth})
           }),
@@ -40,7 +42,7 @@ export class AuthEffects {
       switchMap((auth) => 
         this.authService.register(auth).pipe(
           map((auth) => {
-            this.toastService.success('Success');
+            this.toastService.success(this.translate.instant('auth.register.success'));
             localStorage.setItem(LOCAL_STORAGE.TOKEN, auth.accessToken);
             return AuthActions.registerSuccess(auth)
           }),
@@ -60,7 +62,7 @@ export class AuthEffects {
       switchMap((email) => 
         this.authService.forgotPassword(email).pipe(
           map(() => {
-            this.toastService.success('Success');
+            this.toastService.success(this.translate.instant('auth.forgot.success'));
             return AuthActions.forgotPasswordSuccess()
           }),
           tap(() => this.router.navigate(['/auth/login'])),

@@ -1,4 +1,4 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
@@ -6,17 +6,16 @@ import {
   HttpInterceptor,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AuthService } from '../services/auth.service';
+import { LOCAL_STORAGE } from '../enums/local-storage.enum';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
-  private authService = inject(AuthService);
 
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    const token = this.authService.getToken();
+    const token = localStorage.getItem(LOCAL_STORAGE.TOKEN);
     if (token != null) {
       request = request.clone({
         setHeaders: {

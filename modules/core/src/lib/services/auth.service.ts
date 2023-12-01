@@ -1,6 +1,9 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpService } from '../services/http.service';
 import { Observable } from 'rxjs';
+import { LOCAL_STORAGE } from '../enums/local-storage.enum';
+import { Router } from '@angular/router';
+import { ROUTE_PATH } from '../enums/route-path.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +11,7 @@ import { Observable } from 'rxjs';
 export class AuthService {
   private pathUrl = '';
   private http = inject(HttpService);
+  private router = inject(Router);
 
   login(auth: any): Observable<any> {
     return this.http.post(this.pathUrl + 'login', auth);
@@ -21,11 +25,8 @@ export class AuthService {
     return this.http.post(this.pathUrl + 'forgotPassword', email);
   }
 
-  getToken(): string | null{
-    return localStorage.getItem('');
-  }
-
   logout(): void {
-    console.log('LOGOUT');
+    localStorage.removeItem(LOCAL_STORAGE.TOKEN);
+    this.router.navigate([ROUTE_PATH.AUTH]);
   }
 }

@@ -8,6 +8,7 @@ import {
 import { MdbSidenavComponent } from 'mdb-angular-ui-kit/sidenav';
 import { Observable, fromEvent } from 'rxjs';
 import { DashboardFacade, LanguageEntity, MenuEntity } from 'dashboard-data-access';
+import { AuthService } from 'core';
 @Component({
   selector: 'app-dashboard-layout',
   templateUrl: './dashboard-layout.component.html',
@@ -26,6 +27,7 @@ export class DashboardLayoutComponent implements OnInit, AfterViewInit {
   constructor(
     private ngZone: NgZone,
     private dashboardFacade: DashboardFacade,
+    private authService: AuthService,
   ) {}
 
   ngOnInit(): void {
@@ -66,5 +68,9 @@ export class DashboardLayoutComponent implements OnInit, AfterViewInit {
 
   toggleSkin() {
     document.body.classList.toggle('dark');
+  }
+
+  onLogout(): void {
+    this.authService.logout();
   }
 }

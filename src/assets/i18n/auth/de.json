@@ -1,4 +1,16 @@
 {
-    "HELLO": "HALLO",
-    "login": "Anmeldung"
+    "auth": {
+        "login": {
+            "title": "Anmeldung",
+            "success": "Erfolg"
+        },
+        "register": {
+            "title": "Anmeldung",
+            "success": "Erfolg"
+        },
+        "forgot": {
+            "title": "Passwort vergessen",
+            "success": "Erfolg"
+        }
+    }
 }

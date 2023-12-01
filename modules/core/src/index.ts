@@ -5,5 +5,7 @@ export * from './lib/interceptors/jwt.interceptor';
 export * from './lib/enums/local-storage.enum';
 export * from './lib/enums/language.enum';
 export * from './lib/enums/lib-name.enum';
+export * from './lib/enums/route-path.enum';
 export * from './lib/guards/auth.guard';
+export * from './lib/guards/no-auth.guard';
 export * from './lib/services/auth.service';

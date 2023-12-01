@@ -6,13 +6,13 @@ import {
   UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from '../services/auth.service';
+import { LOCAL_STORAGE } from '../enums/local-storage.enum';
+import { ROUTE_PATH } from '../enums/route-path.enum';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard {
-  private authService = inject(AuthService);
   private router = inject(Router);
 
   canActivate(
@@ -23,11 +23,11 @@ export class AuthGuard {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    const token = this.authService.getToken();
+    const token = localStorage.getItem(LOCAL_STORAGE.TOKEN);
     if (token) {
       return true;
     } else {
-      this.router.navigate(['auth/account/login']);
+      this.router.navigate([ROUTE_PATH.AUTH]);
       return false;
     }
   }

@@ -28,7 +28,6 @@ import { SharedModule } from 'shared';
     DashboardLayoutComponent,
     DashboardMenuComponent,
     LanguageComponent,
-    // TranslateInstantPipe
   ],
 })
 export class DashboardModule {}
