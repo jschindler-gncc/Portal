@@ -1,0 +1,28 @@
+<div class="container">
+    <h4 class="mb-4">Roles and Permission</h4>
+
+    <div class="row">
+        <div class="col-md-3">
+            <button type="button" class="btn btn-primary w-100 mb-4" mdbRipple>Add role</button>
+        </div>
+        <div class="col-md-9"></div>
+        <mdb-tabs #tabs [vertical]="true" [navColumnClass]="'col-3'" [contentColumnClass]="'col-9'">
+          <mdb-tab *ngFor="let item of roles$ | async">
+            <ng-template mdbTabTitle>
+              <span class="d-flex justify-content-between">
+                {{ item.name }}
+                <i class="far fa-trash-alt" (click)="onDelete(item.id)"></i>
+              </span>
+            </ng-template>
+            <module-permission 
+              [roleId]="item.id" 
+              [modules$]="modules$" 
+              [moduleAccessPermissions$]="moduleAccessPermissions$"
+              [permissions$]="permissions$"
+              (updateModuleAccess)="onUpdateModuleAccess($event)"
+            >
+            </module-permission>
+          </mdb-tab>
+        </mdb-tabs>
+    </div>
+</div>

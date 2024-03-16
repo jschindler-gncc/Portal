@@ -1,0 +1,59 @@
+<ng-template #table let-data>
+  <table class="organization-chart-table">
+    <tbody>
+      <tr class="organization-chart-content">
+        <td *ngIf="data.name" [attr.colspan]="data.children?.length * 2 || null">
+          <ng-container
+            *ngTemplateOutlet="nodeTpl; context: { $implicit: data }"
+          ></ng-container>
+        </td>
+      </tr>
+      <tr class="organization-chart-lines-top" [ngClass]="{ 'organization-chart-hide': !data.visible }">
+        <td *ngIf="data.children?.length" [attr.colspan]="data.children.length * 2">
+          <div [ngStyle]="{ height: data.children?.length === 1 ? '40px' : null }"></div>
+        </td>
+      </tr>
+      <tr class="organization-chart-lines" [ngClass]="{ 'organization-chart-hide': !data.visible }">
+        <ng-container *ngIf="data.children?.length > 1">
+          <td
+            *ngFor="let td of _createArray(data.children.length * 2); index as i"
+            [ngStyle]="{
+              borderRightColor: i % 2 === 1 ? 'transparent' : null,
+              borderTop: i === 0 || i === data.children.length * 2 - 1 ? 'none' : null
+            }"
+            class="organization-chart-line"
+          ></td>
+        </ng-container>
+      </tr>
+      <tr class="organization-chart-children" [@fade]="data.visible ? 'visible' : 'hidden'">
+        <td *ngFor="let child of data.children" colspan="2">
+          <ng-container *ngTemplateOutlet="table; context: { $implicit: child }"></ng-container>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>
+
+<ng-template #nodeTpl let-data>
+  <div class="organization-chart-node {{ wrapperClass }}" (click)="onClick(data)">
+    <div class="content">
+      <img *ngIf="data.avatar" class="avatar" [src]="data.avatar" alt="Avatar">
+      <p><b>{{ data.name }}</b></p>
+      <small *ngIf="data.label">{{ data.label }}</small>
+      <p *ngIf="data.count >= 0">
+        <img src="assets/icons/users.svg" alt="Users icon">
+        {{ data.count }}
+      </p>
+      <a *ngIf="data.children?.length" role="button" (click)="toggleFade($event, data)"
+        ><i
+          class="fas fa-chevron-down"
+          [ngStyle]="{ transform: data.visible === false ? 'rotate(180deg)' : 'rotate(0deg)' }"
+        ></i
+      ></a>
+    </div>
+  </div>
+</ng-template>
+
+<ng-container *ngFor="let item of data">
+  <ng-container *ngTemplateOutlet="table; context: { $implicit: item }"></ng-container>
+</ng-container>

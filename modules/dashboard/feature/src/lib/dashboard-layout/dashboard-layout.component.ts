@@ -4,15 +4,18 @@ import {
   AfterViewInit,
   NgZone,
   ViewChild,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { MdbSidenavComponent } from 'mdb-angular-ui-kit/sidenav';
 import { Observable, fromEvent } from 'rxjs';
-import { DashboardFacade, LanguageEntity, MenuEntity } from 'dashboard-data-access';
+import { DashboardFacade, MenuEntity } from 'dashboard-data-access';
 import { AuthService } from 'core';
+import { DictionaryFacade, LanguageEntity } from 'dictionary-data-access';
 @Component({
   selector: 'app-dashboard-layout',
   templateUrl: './dashboard-layout.component.html',
   styleUrls: ['./dashboard-layout.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardLayoutComponent implements OnInit, AfterViewInit {
   @ViewChild('sidenav', { static: true }) sidenav!: MdbSidenavComponent;
@@ -27,13 +30,14 @@ export class DashboardLayoutComponent implements OnInit, AfterViewInit {
   constructor(
     private ngZone: NgZone,
     private dashboardFacade: DashboardFacade,
+    private dictionaryFacade: DictionaryFacade,
     private authService: AuthService,
   ) {}
 
   ngOnInit(): void {
     this.dashboardFacade.getDashboardConfig({ id: 1 }) // put userId in the future;
     this.menu$ = this.dashboardFacade.menu$;
-    this.language$ = this.dashboardFacade.language$;
+    this.language$ = this.dictionaryFacade.languages$;
   }
 
   ngAfterViewInit() {

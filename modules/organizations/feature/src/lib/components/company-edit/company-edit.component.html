@@ -1,0 +1,25 @@
+<h3 class="pb-3">Company Information</h3>
+<div class="row">
+    <div class="col-md-4 col-sm-12">
+        <div class="form border" [formGroup]="form">
+            <mdb-form-control class="mt-2 mb-4">
+                <input mdbInput type="text" class="form-control" formControlName="phone" />
+                <label mdbLabel class="form-label" for="form1">Phone number</label>
+            </mdb-form-control>
+            <mdb-form-control class="mt-4 mb-4">
+                <input mdbInput type="text" class="form-control" formControlName="location" />
+                <label mdbLabel class="form-label" for="form1">Location</label>
+            </mdb-form-control>
+            <mdb-form-control class="mt-4 mb-3">
+                <input mdbInput type="text" class="form-control" formControlName="email" />
+                <label mdbLabel class="form-label" for="form1">Email</label>
+            </mdb-form-control>
+
+            <div class="actions">
+                <button type="button" class="btn btn-primary me-4 mb-1" mdbRipple (click)="onSave()">Save</button>
+                
+                <button type="button" class="btn btn-outline-primary mb-1" mdbRipple (click)="onCancel()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

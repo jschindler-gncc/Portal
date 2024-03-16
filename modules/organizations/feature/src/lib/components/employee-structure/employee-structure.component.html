@@ -1,0 +1,4 @@
+<div hideParentContent>
+    <h3 class="mb-4 mt-1">{{ departmentName$ | async }} employee structure</h3>
+    <tree-view *ngIf="data.length" [data]="data" [wrapperClass]="'employee'"></tree-view>
+</div>

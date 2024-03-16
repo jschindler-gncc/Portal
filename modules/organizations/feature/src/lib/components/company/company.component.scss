@@ -1,0 +1,47 @@
+@import 'src/assets/scss/variables.scss';
+
+.details {    
+    padding: 16px 0;
+    border: 1px solid $mdb-theme-light-divider;
+
+    .row {
+        div { 
+            padding: 0 40px;
+        }
+
+        .info {
+            border-left: 2px solid $mdb-theme-light-divider;
+            border-right: 2px solid $mdb-theme-light-divider;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            justify-content: center;
+
+            &-name {
+                font-size: 24px;
+                font-weight: 600;
+            }
+
+            &-type {
+                font-size: 12px;
+            }
+        }
+        
+        img {
+            max-height: 120px;
+        }
+    }
+}
+
+.table {
+    .header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #F5F5F5;
+    }
+
+    .content-row {
+        padding: 10px 0;
+    }
+}

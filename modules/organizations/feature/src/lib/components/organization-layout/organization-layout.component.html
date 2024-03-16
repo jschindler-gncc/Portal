@@ -1,0 +1,8 @@
+<organization-list 
+    hideParentContent
+    *ngIf="(organizations$ | async) as items" 
+    [items]="items"
+>
+</organization-list>
+
+<router-outlet></router-outlet>

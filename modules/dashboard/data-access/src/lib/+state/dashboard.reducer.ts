@@ -12,7 +12,6 @@ export interface DashboardState extends DashboardResponse {
 
 export const initialDashboardState: DashboardResponse = {
   menus: [],
-  languages: [],
 };
 
 const reducer = createReducer(
@@ -23,7 +22,7 @@ const reducer = createReducer(
     error: null,
   })),
   on(DashboardActions.loadConfigSuccess, (state, { dashboard }) => {
-    return { ...state, loaded: true, menus: dashboard.menus, languages: dashboard.languages };
+    return { ...state, loaded: true, menus: dashboard.menus };
   }),
   on(DashboardActions.loadConfigFailure, (state, { error }) => ({ ...state, error })),
 );

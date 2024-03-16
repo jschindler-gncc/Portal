@@ -1,0 +1,22 @@
+::ng-deep {
+    mdb-tabs {
+        height: 100%;
+
+        .nav-tabs {
+            padding-right: 0;
+            padding-bottom: 0;
+            border: 1px solid #e0e0e0;
+            height: 100%;
+
+            .nav-link {
+                border: 0;
+                padding-left: 15px;
+                padding-right: 15px;
+
+                &.active {
+                    border-left: 2px solid #3b71ca!important;
+                }
+            }
+        }
+    }
+}

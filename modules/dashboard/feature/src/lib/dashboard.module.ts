@@ -11,18 +11,19 @@ import { DashboardMenuComponent } from './dashboard-menu/dashboard-menu.componen
 import { TranslationModule } from 'translation';
 import { LanguageComponent } from './language/language.component';
 import { LIB_NAME } from 'core';
+import { SharedUiModule } from 'shared-ui';
 import { SharedModule } from 'shared';
-
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    TranslationModule.forChild(LIB_NAME.DASHBOARD),
     MdbSidenavModule,
     MdbDropdownModule,
     MdbCollapseModule,
     DashboardDataAccessModule,
+    SharedUiModule,
     SharedModule,
-    TranslationModule.forChild(LIB_NAME.DASHBOARD),
   ],
   declarations: [
     DashboardLayoutComponent,

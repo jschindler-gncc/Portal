@@ -1,0 +1,56 @@
+<div *ngIf="(company$ | async) as company" hideParentContent>
+    <div class="row">
+        <div class="col-lg-9 col-md-12">
+            <div class="details">
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 d-flex justify-content-center align-items-center">
+                        <img [src]="company.imgUrl" alt="Logo">
+                    </div>
+                    <div class="col-md-5 col-sm-12 info">
+                        <p class="info-name">{{ company.name }}</p>
+                        <p class="info-type">{{ company.type }}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-12 actions d-flex flex-column justify-content-center align-items-center">
+                        <div class="d-flex justify-content-between align-items-center p-2 w-100">
+                            <img src="assets/icons/account-tree.svg" alt="Pencil icon">
+                            <b>Departments</b>
+                            <b><a routerLink="departments">{{ company.departments }}</a></b>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center p-2 w-100">
+                            <img src="assets/icons/users.svg" alt="Users icon">
+                            <b>Employees</b>
+                            <b>{{ company.employees }}</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-lg-8 col-md-12">
+            <div class="table border">
+                <div class="header-row">
+                    <b><span>Company Information</span></b>
+                    <a routerLink="edit">
+                        <img src="assets/icons/edit.svg" alt="Edit icon">
+                    </a>
+                </div>
+                <div class="content-row d-flex align-items-center">
+                    <b><span>Phone number:</span></b>
+                    <span>{{ company.phone }}</span>
+                </div>
+                <div class="content-row d-flex align-items-center">
+                    <b><span>Location:</span></b>
+                    <span>{{ company.location }}</span>
+                </div>
+                <div class="content-row d-flex align-items-center">
+                    <b><span>Email:</span></b>
+                    <span>{{ company.email }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<router-outlet></router-outlet>

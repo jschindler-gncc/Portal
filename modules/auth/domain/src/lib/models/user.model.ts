@@ -1,5 +1,6 @@
-export interface User {
-    id: number;
+import { IdNameModel, ROLE } from "core";
+
+export interface User extends IdNameModel {
     email: string;
-    name: string;
+    role: ROLE
 }

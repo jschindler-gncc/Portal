@@ -21,8 +21,15 @@
       "core": ["modules/core/src/index.ts"],
       "dashboard": ["modules/dashboard/feature/src/index.ts"],
       "dashboard-data-access": ["modules/dashboard/data-access/src/index.ts"],
+      "dictionary-data-access": ["modules/dictionary/data-access/src/index.ts"],
       "lazy-modules": ["modules/lazy-modules/src/index.ts"],
-      "products": ["modules/products/src/index.ts"],
+      "organizations": ["modules/organizations/feature/src/index.ts"],
+      "organizations-data-access": [
+        "modules/organizations/data-access/src/index.ts"
+      ],
+      "organizations-domain": ["modules/organizations/domain/src/index.ts"],
+      "settings": ["modules/settings/feature/src/index.ts"],
+      "settings-data-access": ["modules/settings/data-access/src/index.ts"],
       "shared": ["modules/shared/src/index.ts"],
       "shared-ui": ["modules/shared-ui/src/index.ts"],
       "translation": ["modules/translation/src/index.ts"]

@@ -16,8 +16,9 @@
         "User profile": "Benutzerprofil",
         "User management": "Benutzerverwaltung",
         "Management": "Verwaltung",
-        "Sub Menu": "Untermenü",
-        "Sub Menu 1": "Untermenü 1",
-        "Sub Menu 2": "Untermenü 2"
+        "Settings": "Einstellungen",
+        "Role & Permission": "Rolle & Erlaubnis",
+        "Organizations": "Organisationen",
+        "Department": "Abteilung"
     }
 }

@@ -15,7 +15,3 @@ export const selectDashboardMenu = createSelector(
   (state: DashboardState) => state.menus
 );
 
-export const selectDashboardLanguage = createSelector(
-  selectDashboardState,
-  (state: DashboardState) => state.languages
-);

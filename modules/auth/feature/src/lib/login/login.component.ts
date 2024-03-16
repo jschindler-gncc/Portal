@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthFacade } from 'auth-data-access';
 
@@ -7,18 +7,18 @@ import { AuthFacade } from 'auth-data-access';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   private authFacade = inject(AuthFacade);
   public loginForm!: FormGroup;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loginForm = new FormGroup({
       email: new FormControl(null, [Validators.required]),
       password: new FormControl(null, [Validators.required]),
     });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     this.authFacade.login(this.loginForm.value);
   }
 }

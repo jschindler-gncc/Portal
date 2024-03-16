@@ -1,7 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpService } from '../services/http.service';
 import { Observable } from 'rxjs';
-import { LOCAL_STORAGE } from '../enums/local-storage.enum';
 import { Router } from '@angular/router';
 import { ROUTE_PATH } from '../enums/route-path.enum';
 
@@ -26,7 +25,7 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem(LOCAL_STORAGE.TOKEN);
+    localStorage.clear();
     this.router.navigate([ROUTE_PATH.AUTH]);
   }
 }

@@ -16,8 +16,9 @@
         "User profile": "User profile",
         "User management": "User management",
         "Management": "Management",
-        "Sub Menu": "Sub Menu",
-        "Sub Menu 1": "Sub Menu 1",
-        "Sub Menu 2": "Sub Menu 2"
+        "Settings": "Settings",
+        "Role & Permission": "Role & Permission",
+        "Organizations": "Organizations",
+        "Department": "Department"
     }
 }

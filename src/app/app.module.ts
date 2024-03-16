@@ -13,12 +13,11 @@ import { CoreModule } from 'core';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
     CoreModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
     LazyModulesModule,
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,0 +1,7 @@
+
+<div hideParentContent>
+    <h3 class="mb-4 mt-1">{{ (company$ | async)?.name }}  department structure</h3>
+    <tree-view *ngIf="data.length" [data]="data" [wrapperClass]="'department'" (nodeClick)="onClick($event)"></tree-view>
+</div>
+
+<router-outlet></router-outlet>

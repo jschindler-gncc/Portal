@@ -24,6 +24,7 @@ export class AuthGuard {
     | boolean
     | UrlTree {
     const token = localStorage.getItem(LOCAL_STORAGE.TOKEN);
+
     if (token) {
       return true;
     } else {

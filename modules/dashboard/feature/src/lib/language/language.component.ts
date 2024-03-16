@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LANGUAGE, LOCAL_STORAGE } from 'core';
-import { LanguageEntity } from 'dashboard-data-access';
+import { LanguageEntity } from 'dictionary-data-access';
 
 @Component({
   selector: 'language',

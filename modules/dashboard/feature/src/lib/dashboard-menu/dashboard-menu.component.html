@@ -1,14 +1,20 @@
 <ul class="sidenav-menu">
     <mdb-sidenav-item>
         <a class="sidenav-link">
-          <i [class]="config.icon"></i>
-          <span>{{config.name | translateInstant: 'menu' }}</span>
+            <ng-container *ngIf="config.link">
+                <i [class]="config.icon"></i>
+                <a [routerLink]="config.link" routerLinkActive="active">{{config.name | translateInstant: 'menu' }}</a>
+            </ng-container>
+            <ng-container *ngIf="!config.link">
+                <i [class]="config.icon"></i>
+                <span>{{config.name | translateInstant: 'menu' }}</span>
+            </ng-container>
         </a>
         <ul *ngIf="config.items as subItems" mdbCollapse class="sidenav-collapse">
             <ng-container *ngFor="let subItem of subItems">
                 <ng-container *ngIf="subItem.link">
                     <li class="sidenav-item">
-                        <a class="sidenav-link" routerLink="/{{subItem.link}}" routerLinkActive="active">{{ subItem.name | translateInstant: 'menu' }}</a>
+                        <a class="sidenav-link" [routerLink]="subItem.link" routerLinkActive="active">{{ subItem.name | translateInstant: 'menu' }}</a>
                     </li>
                 </ng-container>
                 <ng-container *ngIf="!subItem.link">

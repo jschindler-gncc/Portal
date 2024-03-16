@@ -1,7 +1,30 @@
 @import './variables';
 
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #424242;
+}
+
 .dark {
     .navbar {
         background-color: $mdb-theme-dark-surface;
+    }
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.text-success {
+    color: $mdb-theme-dark-on-error;
+}
+
+.text-error {
+    color: $mdb-theme-dark-error;
+}
+
+.table {
+    thead {
+        background-color: #F5F5F5;
     }
 }

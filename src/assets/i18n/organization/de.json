@@ -1,0 +1,22 @@
+{
+    "navbar": {
+        "search": "Suchen (Strg + '/' zum Fokussieren)",
+        "notification": {
+            "item1": "Einige Nachrichten",
+            "item2": "Eine andere Nachricht",
+            "item3": "Etwas anderes hier"
+        },
+        "profile": {
+            "item1": "Mein Profil",
+            "item2": "Einstellungen",
+            "item3": "Abmelden"
+        }
+    },
+    "menu": {
+        "User profile": "Benutzerprofil",
+        "User management": "Benutzerverwaltung",
+        "Management": "Verwaltung",
+        "Settings": "Einstellungen",
+        "Role & Permission": "Rolle & Erlaubnis"
+    }
+}

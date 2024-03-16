@@ -4,7 +4,7 @@ import { switchMap, catchError, of, map, tap } from 'rxjs';
 import { AuthActions } from './auth.actions';
 import { Router } from '@angular/router';
 import { ToastService } from 'shared-ui';
-import { AuthService, LOCAL_STORAGE } from 'core';
+import { AuthService, SessionService } from 'core';
 import { TranslateService } from '@ngx-translate/core';
 
 
@@ -15,6 +15,7 @@ export class AuthEffects {
   private router = inject(Router);
   private toastService = inject(ToastService);
   private translate = inject(TranslateService);
+  private sessionService = inject(SessionService);
 
   login$ = createEffect(() =>
     this.actions$.pipe(
@@ -23,8 +24,8 @@ export class AuthEffects {
         this.authService.login(auth).pipe(
           map((auth) => {
             this.toastService.success(this.translate.instant('auth.login.success'));
-            localStorage.setItem(LOCAL_STORAGE.TOKEN, auth.accessToken);
-            return AuthActions.loginSuccess({auth})
+            this.sessionService.setSession(auth);
+            return AuthActions.loginSuccess({ auth })
           }),
           tap(() => this.router.navigate(['/dashboard'])),
           catchError((error) => {
@@ -43,7 +44,7 @@ export class AuthEffects {
         this.authService.register(auth).pipe(
           map((auth) => {
             this.toastService.success(this.translate.instant('auth.register.success'));
-            localStorage.setItem(LOCAL_STORAGE.TOKEN, auth.accessToken);
+            this.sessionService.setSession(auth);
             return AuthActions.registerSuccess(auth)
           }),
           tap(() => this.router.navigate(['/dashboard'])),
